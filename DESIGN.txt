@@ -9,14 +9,16 @@
 +------------+------------+-------------+
 | uid        | int        | PK AI UI NN | -+
 | username   | varchar    | NN          |  |
+| email      | varchar    | NN          |  |
 | password   | varchar    | NN          |  |
 +------------+------------+-------------+  |
                                            |
 +---------------------------------------+  |
 | TABLE saved_song                      |  |
 +------------+------------+-------------+  |
-| uid        | int        | I           | <+
-| sid        | int        | I           | <+
+| id         | int        | PK AI UI NN |  |
+| uid        | int        | I NN        | <+
+| sid        | int        | I NN        | <+
 +------------+------------+-------------+  |
                                            |
 +---------------------------------------+  |
@@ -24,9 +26,9 @@
 +------------+------------+-------------+  |
 | id         | int        | PK AI UI NN | -+
 | name       | varchar    | NN          |
-| author_id  | int        | I           | ---------+
-| genre_id   | int        | I           | -----+   |
-| album_id   | int        | I           | -+   |   |
+| author_id  | int        | I NN        | ---------+
+| genre_id   | int        | I NN        | -----+   |
+| album_id   | int        | I NN        | -+   |   |
 | price      | int        |             |  |   |   |
 | downloads  | int        |             |  |   |   |
 +------------+------------+-------------+  |   |   |
@@ -56,7 +58,7 @@
 | TABLE musical_label                   |          |
 +------------+------------+-------------+          |
 | id         | int        | PK          | <--------+
-| name       | varchar    |             |
+| name       | varchar    | NN          |
 +------------+------------+-------------+
 
 Fields Flags Legend:
