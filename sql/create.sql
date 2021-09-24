@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`author` (
   `name` VARCHAR(99) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 15
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`musical_label` (
   `name` VARCHAR(99) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`album` (
     FOREIGN KEY (`musical_label_id`)
     REFERENCES `itunes`.`musical_label` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`genre` (
   `name` VARCHAR(99) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`user` (
   `password` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`uid`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`song` (
     FOREIGN KEY (`album_id`)
     REFERENCES `itunes`.`album` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 16
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `itunes`.`saved_song` (
     FOREIGN KEY (`sid`)
     REFERENCES `itunes`.`song` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 39
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
