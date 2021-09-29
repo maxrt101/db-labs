@@ -1,8 +1,13 @@
-# Lab 1 (Variant 20)
+# Lab 3 (Variant 20)
 ### Task:  
 iTunes. Create a scheme of relational database, that will permit saving
 the info about songs, genres, price, download count, authors, albums,
 music labels, user profiles and songs downloaded by the users.
+
+ - Database must conform to 3NF
+ - SQL script must be runnable multiple times without breaking anything on consecutive runs
+ - Each table should have 10-15 rows, order of insertion should be taken into consideration
+ - Create at least 2 indexes
 
 ### How To Run:  
  - Download and install mysql  

@@ -8,7 +8,7 @@
 | TABLE user                            |
 +------------+------------+-------------+
 | uid        | int        | PK AI NN    | -+
-| username   | varchar    | NN          |  |
+| username   | varchar    | NN UI       |  |
 | email      | varchar    | NN          |  |
 | password   | varchar    | NN          |  |
 +------------+------------+-------------+  |
@@ -25,11 +25,11 @@
 | TABLE song                            |  |
 +------------+------------+-------------+  |
 | id         | int        | PK AI NN    | -+
-| name       | varchar    | NN          |
-| album_id   | int        | SG NN       | -----+
-| genre_id   | int        | SG NN       | -+   |
-| price      | int        | D           |  |   |
-| downloads  | int        | D           |  |   |
+| name       | varchar    | NN UI       |
+| album_id   | int        | SG NN I     | -----+
+| genre_id   | int        | SG NN I     | -+   |
+| price      | int        | D I         |  |   |
+| downloads  | int        | D I         |  |   |
 +------------+------------+-------------+  |   |
                                            |   |
 +---------------------------------------+  |   |
@@ -43,23 +43,23 @@
 | TABLE album                           |      |
 +------------+------------+-------------+      |
 | id         | int        | PK AI NN    | <----+
-| name       | varchar    | NN          |      
-| author_id  | int        | SG NN       | -----+   
-| label_id   | int        | SG NN       | -+   |
+| name       | varchar    | NN I        |      
+| author_id  | int        | SG NN I     | -----+   
+| label_id   | int        | SG NN I     | -+   |
 +------------+------------+-------------+  |   |
                                            |   |
 +---------------------------------------+  |   |
 | TABLE author                          |  |   |
 +------------+------------+-------------+  |   |
 | id         | int        | PK AI NN    | <+   |
-| name       | varchar    | NN          |      |
+| name       | varchar    | NN I        |      |
 +------------+------------+-------------+      |
                                                |
 +---------------------------------------+      |
 | TABLE musical_label                   |      |
 +------------+------------+-------------+      |
 | id         | int        | PK          | <----+
-| name       | varchar    | NN          |
+| name       | varchar    | NN UI       |
 +------------+------------+-------------+
 
 Fields Flags Legend:

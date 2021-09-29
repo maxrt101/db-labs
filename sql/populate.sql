@@ -39,7 +39,7 @@ INSERT INTO author(name) VALUES
   ('Ludwig van Beethoven'),
   ('The Beetles');
 
-INSERT INTO album(name, author_id, musical_label_id) VALUES
+INSERT INTO album(name, author_id, label_id) VALUES
   ('St, Anger', 1, 1),
   ('|||', 7, 2),
   ('Superunknown', 5, 3),
@@ -49,22 +49,22 @@ INSERT INTO album(name, author_id, musical_label_id) VALUES
   ('Baptism by Fire', 4, 7),
   ('One', 14, 8);
 
-INSERT INTO song(name, author_id, genre_id, album_id, price, downloads) VALUES
-  ('Frantic', 1, 2, 1, 4, 100000),
-  ('St. Anger', 1, 2, 1, 4, 100000),
-  ('Some Kind Of Monster', 1, 2, 1, 4, 100000),
-  ('Dirty Window', 1, 2, 1, 4, 100000),
-  ('Invisible Kid', 1, 2, 1, 4, 100000),
-  ('Sweet Amber', 1, 2, 1, 4, 100000),
-  ('The Unnamed Feeling', 1, 2, 1, 4, 100000),
-  ('Purify', 1, 2, 1, 4, 100000),
-  ('All Within My Hands', 1, 2, 1, 4, 100000),
-  ('Pale Moon', 6, 2, 2, 3, 20000),
-  ('Last Days', 6, 2, 2, 3, 20000),
-  ('Til Down', 6, 2, 2, 3, 20000),
-  ('Wolf & Snake', 6, 2, 2, 3, 20000),
-  ('Silver & Gold', 6, 2, 2, 3, 20000),
-  ('Mr. Strange', 6, 2, 2, 3, 20000);
+INSERT INTO song(name, genre_id, album_id, price, downloads) VALUES
+  ('Frantic', 2, 1, 4, 100000),
+  ('St. Anger', 2, 1, 4, 100000),
+  ('Some Kind Of Monster', 2, 1, 4, 100000),
+  ('Dirty Window', 2, 1, 4, 100000),
+  ('Invisible Kid', 2, 1, 4, 100000),
+  ('Sweet Amber', 2, 1, 4, 100000),
+  ('The Unnamed Feeling', 2, 1, 4, 100000),
+  ('Purify', 2, 1, 4, 100000),
+  ('All Within My Hands', 2, 1, 4, 100000),
+  ('Pale Moon', 2, 2, 3, 20000),
+  ('Last Days', 2, 2, 3, 20000),
+  ('Til Down', 2, 2, 3, 20000),
+  ('Wolf & Snake', 2, 2, 3, 20000),
+  ('Silver & Gold', 2, 2, 3, 20000),
+  ('Mr. Strange', 2, 2, 3, 20000);
 
 INSERT INTO user(username, email, password) VALUES
   ('maxrt', 'max.tkachuk@gmail.com', '1111'),
