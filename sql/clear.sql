@@ -1,0 +1,10 @@
+/* Drops all tables */
+
+DROP TABLE IF EXISTS saved_song;
+DROP TABLE IF EXISTS song;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS album;
+DROP TABLE IF EXISTS genre;
+DROP TABLE IF EXISTS author;
+DROP TABLE IF EXISTS musical_label;
+
