@@ -4,9 +4,17 @@ import scala.reflect.ClassTag
 import scala.quoted.*
 import scala.sys.error
 
+/**
+ * Reflection helpers*/
 object Reflection {
+  /**
+   * Retuens a list of class fields
+   */
   def getFields[T: ClassTag] = implicitly[ClassTag[T]].runtimeClass.getDeclaredFields()
-  
+
+  /**
+   * Macro to get an annotation object of type A from class T
+   */
   inline def findAnnotation[T, A] = ${findAnnotationImpl[T, A]}
 
   def findAnnotationImpl[T: Type, A: Type](using Quotes): Expr[Option[A]] = {
@@ -17,6 +25,9 @@ object Reflection {
     }
   }
 
+  /**
+   * Either finds an anootation of type A in class T, or stops compilation
+   */
   inline def findAnnotationOrDie[T, A] = ${findAnnotationOrDieImpl[T, A]}
 
   def findAnnotationOrDieImpl[T: Type, A: Type](using Quotes): Expr[A] = {
@@ -27,6 +38,9 @@ object Reflection {
     }
   }
 
+  /**
+   * Returns a list of annotations
+   */
   inline def getAnnotations[T]: List[String] = ${getAnnotationsImpl[T]}
 
   def getAnnotationsImpl[T: Type](using Quotes): Expr[List[String]] = {

@@ -11,7 +11,11 @@ import com.maxrt.db.{Connection, ConnectionInfo, Model, Table, Dao}
 import com.maxrt.data.Reflection
 
 /**
- * Data Access Object
+ * Data Access Object Implementation
+ * @tparam T - Descendant of Model, represents a DB model
+ * @param tableName - Table name for Model
+ * @param creator - Function for object T creation (needed because of type erasure & imability to invoke constructor from Class<T>.newInstance)
+ * @param ct - Implicit ClassTag[T] to capture type information about T
  */
 class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: ClassTag[T]) extends Dao[T] {
 
@@ -30,7 +34,7 @@ class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: Clas
         return Option(value)
       }
     } catch {
-      case ex: SQLException => ex.printStackTrace()
+      case ex: SQLException => ex.printStackTrace() // TODO rethrow
     }
 
     Option.empty[T]
@@ -52,7 +56,7 @@ class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: Clas
         rows.append(value)
       }
     } catch {
-      case ex: SQLException => ex.printStackTrace()
+      case ex: SQLException => ex.printStackTrace() // TODO rethrow
     }
 
     return rows.toList

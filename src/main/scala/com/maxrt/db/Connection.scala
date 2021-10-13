@@ -5,6 +5,10 @@ import java.sql.Connection
 
 import com.maxrt.db.ConnectionInfo
 
+/**
+ * Wrapper for a java.sql.Connection
+ * TODO think about rewiriting this using connection loop
+ */
 object Connection {
   def getConnection(connInfo: ConnectionInfo): Option[java.sql.Connection] = {
     var connection: java.sql.Connection = null
