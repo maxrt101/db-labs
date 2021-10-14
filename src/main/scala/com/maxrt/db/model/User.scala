@@ -1,8 +1,9 @@
 package com.maxrt.db.model
 
-import com.maxrt.db.{Table, Model}
+import com.maxrt.db.{Table, Model, PrimaryKey}
 
 @Table("user")
+@PrimaryKey("uid")
 class User(var uid: Int = 0,
            var username: String = "",
            var email: String = "",

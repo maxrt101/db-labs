@@ -1,8 +1,9 @@
 package com.maxrt.db.model
 
-import com.maxrt.db.{Table, Model}
+import com.maxrt.db.{Table, Model, PrimaryKey}
 
 @Table("song")
+@PrimaryKey("id")
 class Song(var id: Int = 0,
            var name: String = "",
            var genre_id: Int = 0,

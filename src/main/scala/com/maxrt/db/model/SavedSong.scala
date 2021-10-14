@@ -1,8 +1,9 @@
 package com.maxrt.db.model
 
-import com.maxrt.db.{Table, Model}
+import com.maxrt.db.{Table, Model, PrimaryKey}
 
 @Table("saved_song")
+@PrimaryKey("id")
 class SavedSong(var id: Int = 0, var uid: Int = 0, var sid: Int = 0) extends Model {
   override def toString(): String = s"SavedSong($id, $uid, $sid)"
 
@@ -13,7 +14,7 @@ class SavedSong(var id: Int = 0, var uid: Int = 0, var sid: Int = 0) extends Mod
   }
 
   def setField(name: String, value: AnyRef): Unit = name match {
-    case "id"  => id = value.asInstanceOf[Int]
+    case "id"  => id  = value.asInstanceOf[Int]
     case "uid" => uid = value.asInstanceOf[Int]
     case "sid" => sid = value.asInstanceOf[Int]
   }

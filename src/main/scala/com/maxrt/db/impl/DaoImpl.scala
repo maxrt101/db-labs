@@ -12,12 +12,13 @@ import com.maxrt.data.Reflection
 
 /**
  * Data Access Object Implementation
+ * TODO make `tableName`, `primaryKeyName` & `creator` implicit (using inline macros or smth)
  * @tparam T - Descendant of Model, represents a DB model
  * @param tableName - Table name for Model
  * @param creator - Function for object T creation (needed because of type erasure & imability to invoke constructor from Class<T>.newInstance)
  * @param ct - Implicit ClassTag[T] to capture type information about T
  */
-class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: ClassTag[T]) extends Dao[T] {
+class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: () => T)(implicit ct: ClassTag[T]) extends Dao[T] {
 
   def get(id: IdType): Option[T] = {
     val connection = Connection.getConnection(ConnectionInfo()) match {
@@ -26,7 +27,7 @@ class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: Clas
     }
     try {
       val stmt = connection.createStatement()
-      val rs = stmt.executeQuery("SELECT * FROM " + tableName + " WHERE id=" + id)
+      val rs = stmt.executeQuery(s"SELECT * FROM $tableName WHERE $primaryKeyName=$id")
       if (rs.next) {
         val value = creator()
         val fields = Reflection.getFields[T]
@@ -48,7 +49,7 @@ class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: Clas
     val rows = new ArrayBuffer[T]
     try {
       val stmt = connection.createStatement()
-      val rs = stmt.executeQuery("SELECT * FROM " + tableName)
+      val rs = stmt.executeQuery(s"SELECT * FROM $tableName")
       val fields = Reflection.getFields[T]
       while (rs.next) {
         val value = creator()
@@ -62,10 +63,60 @@ class DaoImpl[T <: Model](tableName: String, creator: () => T)(implicit ct: Clas
     return rows.toList
   }
 
-  def save(value: T): Unit = null
+  def save(value: T): Unit = {
+    val connection = Connection.getConnection(ConnectionInfo()) match {
+      case Some(conn) => conn
+      case None => return
+    }
+    try {
+      val stmt = connection.createStatement()
+      val fields = Reflection.getFields[T]
+      var query = s"INSERT INTO $tableName VALUES ("
+      fields.foreach(f => {
+        query = query + (if fields.head != f  then ", '" else "'") + value.getField(f.getName()) + "'"
+      })
+      query = query + ")"
+      println(query)
+      stmt.executeUpdate(query)
+    } catch {
+      case ex: SQLException => ex.printStackTrace() // TODO rethrow
+    }
+  }
 
-  def update(value: T): Unit = null
+  def update(value: T, fieldName: String = ""): Unit = {
+    val connection = Connection.getConnection(ConnectionInfo()) match {
+      case Some(conn) => conn
+      case None => return
+    }
+    try {
+      val stmt = connection.createStatement()
+      val fields = Reflection.getFields[T]
+      if (fieldName.isEmpty()) {
+        fields.foreach(f => {
+          val query = s"UPDATE $tableName SET ${f.getName()} = '${value.getField(f.getName())}' WHERE $primaryKeyName = ${value.getField(primaryKeyName)}"
+          stmt.executeUpdate(query)
+        })
+      } else {
+        val query = s"UPDATE $tableName SET ${fieldName} = '${value.getField(fieldName)}' WHERE $primaryKeyName = ${value.getField(primaryKeyName)}"
+        stmt.executeUpdate(query)
+      }
+    } catch {
+      case ex: SQLException => ex.printStackTrace() // TODO rethrow
+    }
+  }
 
-  def delete(value: T): Unit = null
+  def delete(value: T): Unit = {
+    val connection = Connection.getConnection(ConnectionInfo()) match {
+      case Some(conn) => conn
+      case None => return
+    }
+    try {
+      val stmt = connection.createStatement()
+      val query = s"DELETE FROM $tableName WHERE $primaryKeyName = ${value.getField(primaryKeyName)}"
+      stmt.executeUpdate(query)
+    } catch {
+      case ex: SQLException => ex.printStackTrace() // TODO rethrow
+    }
+  }
 }
 

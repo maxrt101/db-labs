@@ -9,11 +9,14 @@ import scala.sys.error
 object Reflection {
   /**
    * Retuens a list of class fields
+   * @tparam T - Class to get fields of. Implicitly generates ClassTag
    */
   def getFields[T: ClassTag] = implicitly[ClassTag[T]].runtimeClass.getDeclaredFields()
 
   /**
    * Macro to get an annotation object of type A from class T
+   * @tparam T - Class to get annotation from
+   * @tparam A - Annotation class
    */
   inline def findAnnotation[T, A] = ${findAnnotationImpl[T, A]}
 
@@ -27,6 +30,8 @@ object Reflection {
 
   /**
    * Either finds an anootation of type A in class T, or stops compilation
+   * @tparam T - Class to get annotation from
+   * @tparam A - Annotation class
    */
   inline def findAnnotationOrDie[T, A] = ${findAnnotationOrDieImpl[T, A]}
 
@@ -40,6 +45,7 @@ object Reflection {
 
   /**
    * Returns a list of annotations
+   * @tparam T - Class to get annotaions from
    */
   inline def getAnnotations[T]: List[String] = ${getAnnotationsImpl[T]}
 

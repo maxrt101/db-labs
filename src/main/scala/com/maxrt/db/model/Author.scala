@@ -1,9 +1,9 @@
 package com.maxrt.db.model
 
-import com.maxrt.db.{Model, Table}
-
+import com.maxrt.db.{Model, Table, PrimaryKey}
 
 @Table("author")
+@PrimaryKey("id")
 class Author(var id: Int = 0, var name: String = "") extends Model {
   override def toString(): String = s"Author($id, $name)"
 

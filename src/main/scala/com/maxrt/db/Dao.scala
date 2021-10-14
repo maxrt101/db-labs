@@ -32,8 +32,9 @@ trait Dao[T] {
    * Updated a value in the table
    *
    * @param value - Value to update
+   * @param fieldName - name of the field to be updated, if empty - all fields will be updated
    */
-  def update(value: T): Unit
+  def update(value: T, fieldName: String = ""): Unit
 
   /**
    * Deletes a value in the table
