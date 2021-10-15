@@ -4,7 +4,6 @@ import com.maxrt.db.Table
 import com.maxrt.console.cmd.{Command, Status}
 
 class ListCommand extends Command {
-
   def check(cmdName: String): Boolean = cmdName == "list"
 
   def run(args: List[String]): Status = {

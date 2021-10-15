@@ -36,7 +36,7 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.24</version>
-      <scope>runtime</scope>
+<!--      <scope>runtime</scope>-->
     </dependency>
     <dependency>
       <groupId>net.sourceforge.pmd</groupId>
@@ -70,6 +70,8 @@
           </descriptorRefs>
           <archive>
             <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
               <mainClass>com.maxrt.App</mainClass>
             </manifest>
           </archive>
@@ -94,7 +96,6 @@
           <includeTestSourceDirectory>true</includeTestSourceDirectory>
           <failOnWarning>false</failOnWarning>
           <sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
-          <testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
           <configLocation>${project.basedir}/lib/scalastyle_config.xml</configLocation>
           <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
           <outputEncoding>UTF-8</outputEncoding>

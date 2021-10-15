@@ -1,5 +1,7 @@
 package com.maxrt.db
 
+import scala.reflect.ClassTag
+
 /**
  * Data Access Object Trait
  */
@@ -43,4 +45,18 @@ trait Dao[T <: Model] {
    * @param value - Value to delete
    */
   def delete(value: T): Unit
+
+  /**
+   * Returns Models class tag
+   *
+   * @return ClassTag[T]
+   */
+  def getModelClassTag(): ClassTag[T]
+
+  /**
+   * Creates new Model instance
+   *
+   * @return T - New Model
+   */
+  def newModelInstance(): T
 }

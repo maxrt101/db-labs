@@ -76,7 +76,6 @@ class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: ()
         query = query + (if fields.head != f  then ", '" else "'") + value.getField(f.getName()) + "'"
       })
       query = query + ")"
-      println(query)
       stmt.executeUpdate(query)
     } catch {
       case ex: SQLException => ex.printStackTrace() // TODO rethrow
@@ -118,5 +117,9 @@ class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: ()
       case ex: SQLException => ex.printStackTrace() // TODO rethrow
     }
   }
+
+  def getModelClassTag(): ClassTag[T] = ct
+
+  def newModelInstance(): T = creator()
 }
 

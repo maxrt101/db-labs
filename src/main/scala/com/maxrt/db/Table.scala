@@ -13,6 +13,8 @@ class Table(tableName: String) extends scala.annotation.StaticAnnotation {
 }
 
 object Table {
+  case class Helper(dao: Dao[_], printer: Printer[_])
+
   val tables = List[String]("album", "author", "genre", "musical_label", "saved_song", "song", "user")
-  val heplers = HashMap[String, (Dao[_], Printer[_])]()
+  val heplers = HashMap[String, Helper]()
 }
