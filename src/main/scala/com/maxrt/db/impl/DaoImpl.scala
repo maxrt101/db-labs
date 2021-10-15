@@ -15,7 +15,7 @@ import com.maxrt.data.Reflection
  * TODO make `tableName`, `primaryKeyName` & `creator` implicit (using inline macros or smth)
  * @tparam T - Descendant of Model, represents a DB model
  * @param tableName - Table name for Model
- * @param creator - Function for object T creation (needed because of type erasure & imability to invoke constructor from Class<T>.newInstance)
+ * @param creator - Function for object T creation (needed because of type erasure & inability to invoke constructor from Class<T>.newInstance)
  * @param ct - Implicit ClassTag[T] to capture type information about T
  */
 class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: () => T)(implicit ct: ClassTag[T]) extends Dao[T] {

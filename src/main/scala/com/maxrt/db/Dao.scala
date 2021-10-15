@@ -3,8 +3,9 @@ package com.maxrt.db
 /**
  * Data Access Object Trait
  */
-trait Dao[T] {
+trait Dao[T <: Model] {
   type IdType = Int
+  type ModelType = T
 
   /**
    * Gets a row from table by id
