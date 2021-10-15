@@ -32,8 +32,8 @@ Data Access Layer classes are located in the `com.maxrt.db` package. They use jd
 Business Layer doesn't have a clear implementation, since this whole application is just a bridge from console to mysql database. However, we can say that data validation and presentation are tangential to business logic.  
 User Interface Layer is defined in the `com.maxrt.console` package. It uses `CommandProcessor` to get user input & call one of the predefined commands, such as `help` or `get`. Commands themselves are defined extending `Command` class.  
 
-Can be easily extended with new tables - just create corresponding model & dao classes. Examples can be found in `com.maxrt.db.model` & `command.maxrt.db.dao` packages.  
-Migration to new DB is relatively easy too - you'll just need to write new model & dao classes.  
+The App can be easily extended with new tables - just create corresponding model & dao classes. Examples can be found in `com.maxrt.db.model` & `command.maxrt.db.dao` packages.  
+Migration to new DB is relatively easy too - you'll just need to write new model & dao classes for new DB.  
 
 ## How To Run
  - Clone the repo

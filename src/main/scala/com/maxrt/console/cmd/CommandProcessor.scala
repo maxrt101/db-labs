@@ -6,7 +6,7 @@ import util.control.Breaks._
 import com.maxrt.console.cmd.Command
 
 /**
- * Hanldles user input & Commands
+ * Handles user input & Commands
  * Basically a shell (which is a command procesor)
  */
 class CommandProcessor(commands: List[Command], prompt: String = ">") {
