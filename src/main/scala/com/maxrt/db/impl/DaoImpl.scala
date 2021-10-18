@@ -18,10 +18,10 @@ import com.maxrt.data.Reflection
  * @param creator - Function for object T creation (needed because of type erasure & inability to invoke constructor from Class<T>.newInstance)
  * @param ct - Implicit ClassTag[T] to capture type information about T
  */
-class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: () => T)(implicit ct: ClassTag[T]) extends Dao[T] {
+class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: () => T)(implicit ct: ClassTag[T], connInfo: ConnectionInfo) extends Dao[T] {
 
   def get(id: IdType): Option[T] = {
-    val connection = Connection.getConnection(ConnectionInfo()) match {
+    val connection = Connection.getConnection(connInfo) match {
       case Some(conn) => conn
       case None => return Option.empty[T]
     }
@@ -42,7 +42,7 @@ class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: ()
   }
 
   def getAll(): List[T] = {
-    val connection = Connection.getConnection(ConnectionInfo()) match {
+    val connection = Connection.getConnection(connInfo) match {
       case Some(conn) => conn
       case None => return List.empty[T]
     }
@@ -64,7 +64,7 @@ class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: ()
   }
 
   def save(value: T): Unit = {
-    val connection = Connection.getConnection(ConnectionInfo()) match {
+    val connection = Connection.getConnection(connInfo) match {
       case Some(conn) => conn
       case None => return
     }
@@ -83,7 +83,7 @@ class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: ()
   }
 
   def update(value: T, fieldName: String = ""): Unit = {
-    val connection = Connection.getConnection(ConnectionInfo()) match {
+    val connection = Connection.getConnection(connInfo) match {
       case Some(conn) => conn
       case None => return
     }
@@ -105,7 +105,7 @@ class DaoImpl[T <: Model](tableName: String, primaryKeyName: String, creator: ()
   }
 
   def delete(value: T): Unit = {
-    val connection = Connection.getConnection(ConnectionInfo()) match {
+    val connection = Connection.getConnection(connInfo) match {
       case Some(conn) => conn
       case None => return
     }

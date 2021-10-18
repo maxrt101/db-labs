@@ -1,6 +1,6 @@
 package com.maxrt
 
-import com.maxrt.db.Table
+import com.maxrt.db.{ConnectionInfo, Table}
 import com.maxrt.db.dao.*
 import com.maxrt.db.model.*
 import com.maxrt.console.cmd.impl.*
@@ -11,6 +11,8 @@ import com.maxrt.db.Table.Helper
 object App {
   def main(args: Array[String]): Unit = {
     Console.clear()
+
+    implicit val connInfo = ConnectionInfo()
 
     Table.heplers.addAll(List(
       ("album", Helper(new AlbumDao, new Printer[Album])),
