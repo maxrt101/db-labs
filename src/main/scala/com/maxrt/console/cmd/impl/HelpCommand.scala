@@ -1,6 +1,6 @@
 package com.maxrt.console.cmd.impl
 
-import com.maxrt.console.cmd.{Command, Status}
+import com.maxrt.console.cmd.Command
 
 /**
  * Shows help
@@ -8,7 +8,7 @@ import com.maxrt.console.cmd.{Command, Status}
 class HelpCommand extends Command {
   def check(cmdName: String): Boolean = cmdName == "help"
 
-  def run(args: List[String]): Status = {
+  def run(args: List[String]): Unit = {
     if (args.length == 1) {
       println("JDBC Cosole Connector\nAvailable commands: exit. help, list, get, update, new, delete\nHelp usage: help [COMMAND]")
     } else if (args.length == 2) {
@@ -23,8 +23,7 @@ class HelpCommand extends Command {
         case _        => println("Unknown command")
       }
     } else {
-      return Status.INVALID_ARGS
+      println("Usage: help [COMMAND]")
     }
-    return Status.OK
   }
 }

@@ -29,7 +29,7 @@ The Application is divided into 3 layers:
  - User Interface Layer
 
 Data Access Layer classes are located in the `com.maxrt.db` package. They use jdbc with mysql connector to retrieve data from `itunes` database.  
-Business Layer doesn't have a clear implementation, since this whole application is just a bridge from console to mysql database. However, we can say that data validation and presentation are tangential to business logic.  
+Business Layer is implemented within the `com.maxrt.data.controller`. It handles interfacing with DAOs & some user interaction. 
 User Interface Layer is defined in the `com.maxrt.console` package. It uses `CommandProcessor` to get user input & call one of the predefined commands, such as `help` or `get`. Commands themselves are defined extending `Command` class.  
 
 The App can be easily extended with new tables - just create corresponding model & dao classes. Examples can be found in `com.maxrt.db.model` & `command.maxrt.db.dao` packages.  

@@ -20,6 +20,10 @@ class CommandProcessor(commands: List[Command], prompt: String = ">") {
         if (input.length < 1) {
           break
         }
+        if (input(0) == "exit") {
+          running = false
+          break
+        }
         commands.find(cmd => cmd.check(input(0))) match {
           case Some(cmd) => try {
             cmd.run(input.toList)
@@ -30,13 +34,6 @@ class CommandProcessor(commands: List[Command], prompt: String = ">") {
             }
           }
           case _ => println("No such command found")
-        } match {
-          case Status.EXIT            => running = false
-          case Status.FAIL            => println("Command failed")
-          case Status.INVALID_ARGS    => println("Invalid arguments for command '" + input(0) + "'")
-          case Status.NO_SUCH_RECORD  => println("No such record")
-          case Status.NO_SUCH_TABLE   => println("No such table")
-          case _                      => print("")
         }
       }
     }
