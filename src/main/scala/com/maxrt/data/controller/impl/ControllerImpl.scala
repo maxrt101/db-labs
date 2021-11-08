@@ -1,6 +1,6 @@
 package com.maxrt.data.controller.impl
 
-import com.maxrt.db.{ConnectionInfo, Dao, Model}
+import com.maxrt.db.{Dao, Model}
 import com.maxrt.data.{Controller, Reflection}
 import com.maxrt.console.Printer
 

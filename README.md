@@ -1,10 +1,10 @@
-# Lab 4
+# Lab 5
 
 ## Task
 1. The task is performed on the basis of the designed database model in laboratory works No. 1 and the developed script in No. 3.  
 2. The database must be deployed using SQL-script.  
 3. The Java client is created in the form of Maven project with MySQL connection.  
-4. The structure of the project is created on the basis of MVC-pattern. Where  the model must contain both a Database Access Layer and a Business Logic Layer. The implementation of the Database Access layer is based on the DAO pattern.  
+4. The structure of the project is created on the basis of MVC-pattern. Where  the model must contain both a Database Access Layer and a Business Logic Layer. The implementation of the Database Access layer is based on the DAO pattern using Hibernate.  
 5. User Interface Layer is implemented in the form of a console menu. Thus, the Program should provide work with data in a DB by means of JDBC:  
     - output of data from tables;  
     - insert data into the table;  
@@ -37,9 +37,9 @@ Migration to new DB is relatively easy too - you'll just need to write new model
 
 ## How To Run
  - Clone the repo
- - `cd db_labs && git checkout lab4`
+ - `cd db_labs && git checkout lab5`
  - `mvn compile packge`
- - `java -cp target/lab4-VERSION-jar-with-dependencies.jar com.maxrt.App`
+ - `java -cp target/lab5-VERSION-jar-with-dependencies.jar com.maxrt.App`
  
 Note: replace `VERSION` in jar file name with the project version
 

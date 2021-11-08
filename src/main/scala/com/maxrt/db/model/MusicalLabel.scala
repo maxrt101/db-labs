@@ -1,11 +1,18 @@
 package com.maxrt.db.model
 
-import com.maxrt.db.{Table, Model, PrimaryKey}
+import com.maxrt.db.{Model, PrimaryKey}
+import javax.persistence._
+import scala.annotation.meta.field
 
-@Table("musical_label")
+@Entity
+@Table(name = "musical_label", schema = "itunes")
 @PrimaryKey("id")
-class MusicalLabel(var id: Int = 0, var name: String = "") extends Model {
-  override def toString(): String = s"MusicalLabel($id, $name)"
+class MusicalLabel extends Model {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  var id: Int = 0
+  var name: String = ""
 
   def getField(name: String): Any = name match {
     case "id"   => id
@@ -16,4 +23,6 @@ class MusicalLabel(var id: Int = 0, var name: String = "") extends Model {
     case "id"   => id = value.asInstanceOf[Int]
     case "name" => this.name = value.asInstanceOf[String]
   }
+
+  override def toString(): String = s"MusicalLabel($id, $name)"
 }

@@ -1,7 +1,5 @@
 package com.maxrt.console.cmd.impl
 
-//import com.maxrt.db.{Model, Table}
-//import com.maxrt.console.Printer
 import com.maxrt.console.cmd.Command
 import com.maxrt.data.Controller
 

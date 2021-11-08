@@ -1,6 +1,6 @@
 package com.maxrt.data
 
-import com.maxrt.db.{ConnectionInfo, Dao, Model}
+import com.maxrt.db.{Dao, Model}
 import com.maxrt.console.Printer
 
 import scala.collection.mutable.HashMap

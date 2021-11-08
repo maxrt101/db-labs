@@ -1,14 +1,20 @@
 package com.maxrt.db.model
 
-import com.maxrt.db.{Table, Model, PrimaryKey}
+import com.maxrt.db.{Model, PrimaryKey}
+import javax.persistence._
+import scala.annotation.meta.field
 
-@Table("user")
+@Entity
+@Table(name = "user", schema = "itunes")
 @PrimaryKey("uid")
-class User(var uid: Int = 0,
-           var username: String = "",
-           var email: String = "",
-           var password: String = "") extends Model {
-  override def toString(): String = s"User($uid, $username, $email, $password)"
+class User extends Model {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  var uid: Int = 0
+  var username: String = ""
+  var email: String = ""
+  var password: String = ""
 
   def getField(name: String): Any = name match {
     case "uid"      => uid
@@ -23,4 +29,6 @@ class User(var uid: Int = 0,
     case "email"    => email = value.asInstanceOf[String]
     case "password" => password = value.asInstanceOf[String]
   }
+
+  override def toString(): String = s"User($uid, $username, $email, $password)"
 }
