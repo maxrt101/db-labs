@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>660</groupId>
-  <artifactId>lab4</artifactId>
+  <artifactId>lab5</artifactId>
   <version>1.0</version>
   <name>${project.artifactId}</name>
   <description>JDBC Interactive App</description>
@@ -78,7 +78,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.2-beta-5</version>
+        <version>3.1.0</version>
         <configuration>
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -93,6 +93,7 @@
         </configuration>
         <executions>
           <execution>
+            <id>assemble-all</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
