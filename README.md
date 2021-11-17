@@ -4,7 +4,6 @@
  - Create spring boot app using the template project provided
  - Use swagger
 
-
 ## Database description (from lab1)
 iTunes. Create a scheme of relational database, that will permit saving the info about songs, genres, price, download count, authors, albums, music labels, user profiles and songs downloaded by the users.
 
@@ -25,7 +24,7 @@ Migration to new DB is relatively easy too - you'll just need to write new model
  - Clone the repo
  - `cd db_labs && git checkout lab6`
  - `mvn compile packge`
- - `java -cp target/lab6-VERSION-jar-with-dependencies.jar com.maxrt.App` or ``
+ - `java -cp target/lab6-VERSION-jar-with-dependencies.jar com.maxrt.App` or `scala3 target/lab6-VERSION-jar-with-dependencies.jar`
  
 Note: replace `VERSION` in jar file name with the project version
 

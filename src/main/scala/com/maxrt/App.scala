@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.SpringApplication
 import org.springframework.context.annotation.ComponentScan
 
-@ComponentScan(Array("com.maxrt.controller", "com.maxrt.service", "com.maxrt.repository"))
+@ComponentScan(Array("com.maxrt.controller", "com.maxrt.service", "com.maxrt.repository", "com.maxrt.data"))
 @SpringBootApplication
 class BootApplication
 
