@@ -9,7 +9,7 @@ abstract class Model {
    *
    * @param name - Name of the field
    */
-  def getField(name: String): Any
+//  def getField(name: String): Any
 
   /**
    * Sets a value into the field by name
@@ -17,5 +17,5 @@ abstract class Model {
    * @param name - Name of the field
    * @param value - Value
    */
-  def setField(name: String, value: AnyRef): Unit
+//  def setField(name: String, value: AnyRef): Unit
 }
