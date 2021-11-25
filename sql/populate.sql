@@ -35,3 +35,14 @@ INSERT INTO discipline (name, semester, code, form) VALUES
   ('English-2', 2, 301, 2),
   ('English-3', 1, 302, 2);
 
+INSERT INTO employee_discipline (employee, discipline) VALUES
+  (1, 1),
+  (1, 2),
+  (1, 3),
+  (2, 4),
+  (2, 5),
+  (2, 6),
+  (1, 7),
+  (2, 8),
+  (1, 9);
+
