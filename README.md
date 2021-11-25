@@ -17,12 +17,12 @@ Database of employees of the KSA department.
 2. Value Employees -> Work experience cannot be greater than the difference between the current date and date of birth + 15 years;
 
 ## Scripts overview
-`clear.sql` - Truncates all of the tables in DB
-`create.sql` - Creates empty tables
-`triggers.sql` - Creates triggers to emulate `FOREIGN KEY` & `UNIQUE`
-`populate.sql` - Populates the tables with dummy values
-`procedures.sql` - Contains the definitions of the procedures from the task
-`functions.sql` - Contains the definitions of the functions from the task
+1. `clear.sql` - Truncates all of the tables in DB
+2. `create.sql` - Creates empty tables
+3. `triggers.sql` - Creates triggers to emulate `FOREIGN KEY` & `UNIQUE`
+4. `populate.sql` - Populates the tables with dummy values
+5. `procedures.sql` - Contains the definitions of the procedures from the task
+6. `functions.sql` - Contains the definitions of the functions from the task
 
 ## How to run
  - Clone the repo
